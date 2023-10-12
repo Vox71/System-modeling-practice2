@@ -14,7 +14,6 @@ class randomThread implements Callable<float[]> {
         this.A_i = A_i;
         this.B_i = B_i;
     }
-
     public float[] call() throws Exception {
         return randomNumbers.sequence(a, b, m, N, A_i, B_i);
     }

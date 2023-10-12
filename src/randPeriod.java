@@ -1,13 +1,15 @@
-public class randPeriod {
+import java.util.concurrent.Callable;
+
+public class randPeriod implements Callable<float[]> {
     int N;
     float[] RParamsArr;
     float[] result = new float[3];
 
-    public randPeriod(float[] RParamsArr, int N) {
+    public randPeriod(float[] RParamsArr) {
         this.RParamsArr = RParamsArr;
-        this.N = N;
+        this.N = RParamsArr.length;
     }
-    public float[] getPeriod(){
+    public float[] call() throws Exception {
         for(int i = 0; i < N; i++){
             float element = RParamsArr[i];
             for(int j = i; j < N; j++){
@@ -24,5 +26,4 @@ public class randPeriod {
         result[2] = -1;
         return result;
     }
-
 }
