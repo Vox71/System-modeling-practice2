@@ -1,7 +1,12 @@
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
+
 import java.util.concurrent.*;
+import java.util.Collections.*;
+
+import static java.lang.Math.max;
 import static java.lang.Math.pow;
 
 public class Main {
@@ -29,14 +34,14 @@ public class Main {
         }
 
         //это необязательный вывод всех результатов всех потоков. В терминал идеи не помещается, но пусть будет
-        for(Future<float[]> fut : list) {
-            try {
-                System.out.println(Arrays.toString(fut.get()));
-            }
-            catch (InterruptedException | ExecutionException e) {
-                e.printStackTrace();
-            }
-        }
+//        for(Future<float[]> fut : list) {
+//            try {
+//                System.out.println(Arrays.toString(fut.get()));
+//            }
+//            catch (InterruptedException | ExecutionException e) {
+//                e.printStackTrace();
+//            }
+//        }
         executor.shutdown(); //выключаем executorservice, после этого программа продолжит работу как обычно
 //////////////////////////////////////////////
 //        //ЗАДАНИЕ 7. Выполняем его ТАК ЖЕ как и 2, но вместо нашего алгоритма используем Math.random. Пока могу сказать
@@ -51,7 +56,7 @@ public class Main {
 //            list.add(future);
 //            arrayList.add(list.get(j).get()); //второй .get отвечает за получение return из штуки которую мы в future запихнули
 //        }
-//
+
 //        //это необязательный вывод всех результатов всех потоков. В терминал идеи не помещается, но пусть будет
 //        for(Future<float[]> fut : list) {
 //            try {
@@ -63,6 +68,7 @@ public class Main {
 //        }
 //        executor.shutdown(); //выключаем executorservice, после этого программа продолжит работу как обычно
 //////////////////////////////////////////////////////////////
+
 
         //ЗАДАНИЕ 3.1
         float M = (float) (A_i + B_i) / 2; //мат ожидание
@@ -130,8 +136,8 @@ public class Main {
         // Код не позволяет выводить больше одной гистограммы, так как данные будут перекрвыаться. Гистограмма имеет resX,
         // создающий линию X от 0 до 10, чего хватает для выполнения задания. Y генерируется из полученных ранее частот,
         // которые хранятся в списке freqList
-        GrGis gis = new GrGis(freqList.get(0), "RParamsArr_e2");
+        GrGis gis = new GrGis(freqList.get(3), "RParamsArr_e5");
         gis.setVisible(true);
-        gis.createGis(freqList.get(0));
+        gis.createGis(freqList.get(3));
     }
 }

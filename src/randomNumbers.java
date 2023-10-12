@@ -11,11 +11,19 @@ public class randomNumbers {
             RNumsArr[i] = rand(a, b, m, RNumsArr[i-1]);
         }
         float[] RParamsArr = new float[N];
+        float min = B_i;
+        float max = A_i;
         for(int i = 0; i < N; i++){
             RParamsArr[i] =  A_i + (B_i - A_i) * ((float) RNumsArr[i] / m);
-            System.out.println("прикол");
-
+            if(RParamsArr[i]<min){
+                min = RParamsArr[i];
+            }
+            if(RParamsArr[i]>max){
+                max = RParamsArr[i];
+            }
         }
+        System.out.println("Минимальное значение при N = "+ N + ": " + min);
+        System.out.println("Максимальное значение  при N = "+ N + ": " + max);
         return RParamsArr;
     }
 }
